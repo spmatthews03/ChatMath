@@ -78,6 +78,8 @@ export interface SecondExampleScreenProps extends NavigationScreenProps<{}> {}
 
 export class SecondExampleScreen extends React.Component<SecondExampleScreenProps, {}> {
   goBack = () => this.props.navigation.goBack(null)
+  nextScreen = () => this.props.navigation.navigate("gridScreen")
+
 
   demoReactotron = async () => {
     console.tron.log("Your Friendly tron log message")
@@ -105,6 +107,8 @@ export class SecondExampleScreen extends React.Component<SecondExampleScreenProp
           "https://avatars2.githubusercontent.com/u/3902527?s=200&u=a0d16b13ed719f35d95ca0f4440f5d07c32c349a&v=4",
       },
     })
+
+
     // make an API call for the demo
     // Don't do API like this, use store's API
     const demo = new Api()
@@ -114,7 +118,7 @@ export class SecondExampleScreen extends React.Component<SecondExampleScreenProp
     await save("Cool Name", "Boaty McBoatface")
   }
 
-  render() {
+  render () {
     return (
           <View style={FULL}>
             <Wallpaper />
@@ -138,6 +142,12 @@ export class SecondExampleScreen extends React.Component<SecondExampleScreenProp
                 textStyle={DEMO_TEXT}
                 tx="secondExampleScreen.reactotron"
                 onPress={this.demoReactotron}
+              />
+              <Button
+                style={DEMO}
+                textStyle={DEMO_TEXT}
+                tx="secondExampleScreen.reactotron"
+                onPress={this.nextScreen}
               />
             </View>
             <Image source={logoIgnite} style={IGNITE} />
